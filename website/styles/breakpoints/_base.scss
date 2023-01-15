@@ -1,0 +1,339 @@
+body {
+    font-family: 'Kameron', 'Noto Sans JP', sans-serif;
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+.font-sm {
+    font-size: 14px;
+}
+.font-md {
+    font-size: 17px;
+}
+.font-lr {
+    font-size: 17px;
+}
+.font-lg {
+    font-size: 25px;
+}
+.mb-sm {
+    margin-bottom: 16px !important;
+}
+.mb-lg {
+    margin-bottom: 80px !important;
+}
+.pd-sm {
+    padding-bottom: 16px;
+}
+.pd-lg {
+    padding-bottom: 80px !important;
+}
+.content-width {
+    width: 90%;
+    margin: 0 auto;
+    max-width: $contentMaxWidth;
+}
+.main-title {
+    @extend .font-lg;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.sub-title {
+    @extend .font-sm;
+    color: $cSubtitle;
+}
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+.purple {
+    color: $cWineRed;
+}
+#container {
+    transition: transform 0.7s, box-shadow 0.7s ease;
+    background-color: $cWhite;
+    position: relative;
+    z-index: 10;
+}
+
+#main-content {
+    position: relative; 
+    z-index: 0;
+}
+main {
+    position: relative;
+    z-index: -1;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+
+    &.triggered {
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 25px -10px rgba(0 ,0, 0, 0.6);
+    }
+
+    &__nav {
+        display: none;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        @extend .content-width;
+    }
+    &__ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    &__li {
+        margin-left: 20px;
+        text-transform: uppercase;
+
+        & > a {
+            color: $cBlack;
+            text-decoration: none !important;
+        }
+    }
+    & .logo {
+        font-size: 38px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.mobile-menu {
+    & .logo {
+        padding: 0 40px;
+    }
+    &__link {
+        text-decoration: none !important;
+
+        & > .main-title {
+            @extend .main-title;
+        }
+        & > .sub-title {
+            @extend .sub-title;
+            display: block;
+        }
+    }
+}
+.travel {
+    @extend .content-width;
+    @extend .mb-lg;
+
+    &__inner {
+        position: relative;
+        z-index: 0;
+        @extend .flex;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: $cBgGray;
+    }
+    &__sub {
+        @extend .mb-sm;
+    }
+    &__img {
+        height: 300px;
+        @extend .mb-sm;
+        transition: box-shadow 1ms linear 0.8s;
+
+        & > img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: -1;
+        }
+
+        &.inview {
+            box-shadow: inset 0 0 30px $cBlack;
+        }
+    }
+    &__texts {
+        @extend .pd-sm;
+    }
+}
+.houses {
+    @extend .content-width;
+    @extend .mb-lg;
+
+    &__inner {
+        @extend .flex;
+    }
+
+    &__title {
+        @extend .font-lr;
+        @extend .mb-sm;
+    }
+    &__btn {
+        text-align: center;
+        flex-basis: 100%;
+    }
+}
+.popular {
+    &__inner {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            background-color: $cBgGray;
+            content: '';
+        }
+    }
+
+    &__header {
+        @extend .content-width;
+    }
+
+    &__container {
+        @extend .content-width;
+        @extend .flex;
+        @extend .pd-sm;
+        position: relative;
+        z-index: 2;
+    }
+    &__title {
+        @extend .font-md;
+        @extend .mb-sm;
+    }
+    &__btn {
+        @extend .mb-lg;
+        text-align: center;
+        flex-basis: 100%;
+    }
+    &__img {
+        height: 150px;
+        overflow: hidden;
+        margin-bottom: 5px;
+
+        & > img {
+            object-fit: cover;
+            object-position: 50% 60%;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+.logo {
+    font-size: 42px;
+    display: flex;
+
+    &__img {
+        width: 0.7em;
+    }
+    &__world {
+        color: $cWineRed;
+    }
+}
+.footer {
+    padding: 60px 0;
+    @extend .content-width;
+
+    &__nav {
+        @extend .flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+    &__ul {
+        @extend .flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    &__li {
+        padding: 0;
+        margin: 10px;
+
+        & > a {
+            color: $cSubtitle;
+        }
+    }
+    & .logo {
+        font-size: 38px;
+        justify-content: center;
+    }
+}
+.side {
+    display: none;
+    position: fixed;
+    top: 70%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in;
+
+    & .animate-title {
+        color: $cBlack;
+        text-decoration: none !important;
+        margin: 0 40px;
+        vertical-align: middle;
+        letter-spacing: 2px;
+    }
+    
+
+    &.right {
+        right: -50px;
+
+        &.inview {
+            right: 50px;
+        }
+
+        & .side__inner {
+            transform-origin: top right;
+            transform: rotate(90deg);
+        }
+    }
+    &.left {
+        left: -50px;
+        &.inview {
+            left: 50px;
+        }
+
+        & .side__inner {
+            transform-origin: top left;
+            transform: rotate(-90deg);
+        }
+    }
+}
+.icon {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1em;
+        height: 1em;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &.twitter {
+        &::before {
+            background-image: url(../images/twitter.png);
+        }
+    }
+    &.fb {
+        &::before {
+            background-image: url(../images/facebook.png);
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.travel {
+    &__inner {
+        padding: 50px;
+    }
+    &__title {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -120px;
+            width: 100px;
+            height: 1px;
+            background-color: $cBlack;
+            transform: translateY(-50%) scaleX(0);
+            transition: transform 0.3s ease 1.6s;
+            transform-origin: right;
+        }
+
+        &.inview {
+            &::before {
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &__img {
+        flex-basis: 47%;
+    }
+    &__texts {
+        flex-basis: 47%;
+    }
+    &__texts {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.houses {
+    &__item {
+        flex-basis: 50%;
+        margin-bottom: 60px;
+    }
+}
+.popular {
+    &__container {
+        justify-content: space-between;
+    }
+    &__item {
+        flex-basis: 47%;
+    }
+}
+.footer {
+    & .logo {
+        justify-content: flex-start;
+    }
+    &__li {
+        margin-left: 0;
+        margin-right: 30px;
+    }
+}

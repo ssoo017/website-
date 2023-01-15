@@ -1,0 +1,13 @@
+.popular {
+    &__item {
+        flex-basis: 23%;
+    }
+}
+.travel {
+    &__inner {
+        padding: 50px 150px;
+    }
+}
+.side {
+    display: block;
+}

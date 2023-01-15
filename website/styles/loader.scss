@@ -1,0 +1,63 @@
+@import 'modules/mixin';
+
+.pace {
+    z-index: 2000;
+	position: fixed;
+	margin: auto;
+	top: 12px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+}
+#global-container {
+    opacity: 0;
+    transition: opacity 1.2s;
+}
+.pace-done #global-container {
+    opacity: 1;
+}
+
+.pace .pace-progress {
+	transform: none !important;
+}
+
+.pace .pace-progress:after {
+	content: attr(data-progress-text);
+	display: block;
+    font-weight: 100;
+    font-size: 2em;
+	text-align: center;
+    color: #535353;
+}
+.pace-progress-inner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: black;
+    margin: 0 auto;
+
+    @include animation(
+        $name: sk-rotateplane,
+        $iteration-count: infinite,
+        $timing-function: ease-in-out,
+        $duration: 1s
+    );
+}
+
+
+.pace.pace-inactive {
+	display: none;
+}
+@keyframes sk-rotateplane {
+    0% {
+        transform: perspective(120px) rotate(0);
+    }
+    50% {
+        transform: perspective(120px)  rotateY(180deg) rotateX(0);
+    }
+    100% {
+        transform: perspective(120px)  rotateY(180deg) rotateX(180deg);
+    }
+}

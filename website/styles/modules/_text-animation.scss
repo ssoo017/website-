@@ -1,0 +1,42 @@
+.animate-title {
+    opacity: 0;
+    
+    &.inview {
+        opacity: 1;
+
+        & .char {
+            display: inline-block;
+        }
+    }
+
+    & .char {
+        opacity: 0;
+    }
+}
+
+// .animate-title.inview .char {
+//     @include animation (
+//                 $name: kf-text-animation,
+//                 $fill-mode: forwards
+//             );
+
+//             @for $i from 1 through 30 {
+//                 &:nth-child(#{$i}) {
+//                     animation-delay: 0.08s * $i;
+//                 }
+//             }
+// }
+// @keyframes kf-text-animation {
+//     0% {
+//         opacity: 0;
+//         transform: translateY(-50%);
+//     }
+//     50% {
+//         opacity: 1;
+//         transform: translateY(10%);
+//     }
+//     100% {
+//         opacity: 1;
+//         transform: translateY(0);
+//     }
+// }
